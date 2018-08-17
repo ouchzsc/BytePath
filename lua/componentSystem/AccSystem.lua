@@ -1,0 +1,51 @@
+local AccSystem = mod.ComponentSystem:new()
+
+function AccSystem:onEnable()
+    self:registerEvent(mod.event.onUpdate, function(dt)
+        self:onUpdate(dt)
+    end)
+end
+
+function AccSystem:onUpdate(dt)
+    local entity = self.entity
+    entity.axMap = entity.axMap or {}
+    entity.ayMap = entity.ayMap or {}
+    entity.vx = entity.vx or 0
+    entity.vy = entity.vy or 0
+
+    local ax = 0
+    for k, v in pairs(entity.axMap) do
+        ax = ax + v
+    end
+
+    --速度不要直接变换正负，避免摩擦力计算出错，如果经过零点则先设为0，其实Y方向也可以这么算
+    local tempvx = entity.vx + ax * dt
+    if tempvx * entity.vx < 0 then
+        entity.vx = 0
+    else
+        entity.vx = tempvx
+    end
+
+    local ay = 0
+    for k, v in pairs(entity.ayMap) do
+        ay = ay + v
+    end
+    entity.vy = entity.vy + ay * dt
+
+    if entity.vx > mod.config.maxVx then
+        entity.vx = mod.config.maxVx
+    elseif entity.vx < -mod.config.maxVx then
+        entity.vx = -mod.config.maxVx
+    end
+    if entity.vy > mod.config.maxVy then
+        entity.vy = mod.config.maxVy
+    elseif entity.vy < -mod.config.maxVy then
+        entity.vy = -mod.config.maxVy
+    end
+
+
+    entity.nextX = entity.x + entity.vx * dt
+    entity.nextY = entity.y + entity.vy * dt
+end
+
+return AccSystem
