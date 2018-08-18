@@ -6,6 +6,10 @@ function Shoot:onEnable()
     end)
 end
 
+function Shoot:onDisable()
+    self.entity.isFiring = false
+end
+
 function Shoot:onUpdate(dt)
     local entity = self.entity
     if love.mouse.isDown(1) then

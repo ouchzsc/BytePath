@@ -1,7 +1,9 @@
 local CollideToDeath = mod.ComponentSystem:new()
 
 function CollideToDeath:onEnable()
-    self:registerEvent(mod.event.onCollision, function(cols) self:onCollision(cols) end)
+    self:registerEvent(mod.event.onCollision, function(cols)
+        self:onCollision(cols)
+    end)
 end
 
 function CollideToDeath:onCollision(cols)
@@ -10,6 +12,8 @@ function CollideToDeath:onCollision(cols)
         if col.type ~= "cross" then
             if col.item == entity or col.other == entity then
                 entity:setActive(false)
+                local deadbody = mod.Entity.create(mod.archetype.deadbody)
+                deadbody:setActive(true)
                 return
             end
         end
