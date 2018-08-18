@@ -3,14 +3,17 @@ main.tx, main.ty, main.scale = 0, 0, 1
 
 function love.load()
     love.mouse.setVisible(false)
-    love.graphics.setDefaultFilter('nearest')
+    --    love.graphics.setDefaultFilter('nearest')
     love.graphics.setLineStyle("rough")
     local _, _, mode = love.window.getMode()
     love.window.setMode(mod.config.width, mod.config.height, mode)
     mod.Scene2:new():setActive(true)
+    main.dt = 0
 end
 
 function love.draw()
+    local dt = main.dt
+
     love.graphics.push()
     love.graphics.translate(main.tx, main.ty)
     love.graphics.scale(main.scale)
@@ -34,12 +37,18 @@ function love.keypressed(key)
         return
     end
     if key == "f6" then
+        package.loaded["lua.test.test"] = nil
+        local test = require "lua.test.test"
+        test.f6()
     end
+    mod.event.onKeyPressed:Trigger(key)
 end
 
 function love.update(dt)
+    main.dt = dt
     mod.event.onUpdate:Trigger(dt)
     mod.Timer.globalTimer:Update(dt)
+    mod.event.onLateUpdate:Trigger(dt)
 end
 
 return main

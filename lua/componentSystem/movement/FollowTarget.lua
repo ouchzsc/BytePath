@@ -1,12 +1,12 @@
-local FollowPos = mod.ComponentSystem:new()
+local FollowTarget = mod.ComponentSystem:new()
 
-function FollowPos:onEnable()
+function FollowTarget:onEnable()
     self:registerEvent(mod.event.onUpdate, function(dt)
         self:onUpdate(dt)
     end)
 end
 
-function FollowPos:onUpdate(dt)
+function FollowTarget:onUpdate(dt)
     local entity = self.entity
     if entity.followTarget == nil then
         return
@@ -15,4 +15,4 @@ function FollowPos:onUpdate(dt)
     entity.nextY = entity.followTarget.y + (entity.followTarget.h - entity.h) / 2
 end
 
-return FollowPos
+return FollowTarget

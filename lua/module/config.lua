@@ -10,5 +10,7 @@ config.maxVx = 300
 config.maxVy = 300
 config.ax = 300
 config.ay = 10000
+config.bulletVelocity = 800
+config.bulletlifetime = 2
 
 return config

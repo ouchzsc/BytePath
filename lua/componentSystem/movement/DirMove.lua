@@ -1,12 +1,12 @@
 local DirMove = mod.ComponentSystem:new()
 
 function DirMove:onEnable()
-    self:registerEvent(mod.event.onUpdate, function(dt)
-        self:onUpdate(dt)
+    self:registerEvent(mod.event.onLateUpdate, function(dt)
+        self:onLateUpdate(dt)
     end)
 end
 
-function DirMove:onUpdate(dt)
+function DirMove:onLateUpdate(dt)
     local entity = self.entity
     local dx, dy
     local angle, v = entity.angle, entity.v
@@ -15,5 +15,4 @@ function DirMove:onUpdate(dt)
     entity.nextX = entity.x + dx
     entity.nextY = entity.y + dy
 end
-
 return DirMove

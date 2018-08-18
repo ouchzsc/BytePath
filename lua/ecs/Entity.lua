@@ -35,8 +35,8 @@ end
 
 function Entity:removeComponent(comCls)
     local com = self.components[comCls]
-    com.entity = nil
     com:setActive(false)
+    com.entity = nil
     com:destroy()
     self.components[comCls] = nil
 end

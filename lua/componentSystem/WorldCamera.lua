@@ -18,7 +18,7 @@ function WorldCamera:draw()
     love.graphics.setBackgroundColor(0, 0.5, 0.7)
     --View裁剪，bump始终使用世界坐标系,跟graphics的坐标系无关
     local items, len = mod.bump.world:queryRect(entity.x, entity.y, entity.w, entity.h)
-    love.graphics.print(string.format("obj in view:%d\nx:%f,y:%f", len, entity.x, entity.y))
+    love.graphics.print(string.format("obj in view:%d\nCamX:%d,CamY:%d", len,entity.x,entity.y))
     love.graphics.push()
     love.graphics.translate(-entity.x, -entity.y)
     --世界坐标系
@@ -42,7 +42,7 @@ function WorldCamera:resize(w, h)
 end
 
 function WorldCamera:drawMask()
-    love.graphics.setColor(1, 1, 0)
+    love.graphics.setColor(0, 0, 0)
     love.graphics.rectangle("fill", 0, 0, -self.mw, self.mh)
     love.graphics.rectangle("fill", mod.config.width, 0, self.mw, self.mh)
     love.graphics.rectangle("fill", 0, 0, self.mw, -self.mh)

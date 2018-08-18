@@ -17,7 +17,7 @@ function Shoot3:fire()
         local bullet2 = mod.Entity.create(mod.archetype.bullet)
         local bullet3 = mod.Entity.create(mod.archetype.bullet)
 
-        local commondata = { angle = angle, timeLife = 2, v = 800, team = "team1", w = 10, h = 10, name = "bullet" }
+        local commondata = { angle = angle, timeLife = mod.config.bulletlifetime, v = mod.config.bulletVelocity, team = "team1", w = 10, h = 10, name = "bullet" }
 
         bullet:setData(commondata)
         bullet2:setData(commondata)
