@@ -38,5 +38,8 @@ mod.Shoot = require("lua.componentSystem.shoot.Shoot")
 mod.Shoot2 = require("lua.componentSystem.shoot.Shoot2")
 mod.Shoot3 = require("lua.componentSystem.shoot.Shoot3")
 mod.WeaponSystem = require("lua.componentSystem.WeaponSystem")
+mod.RenderDirVelocity = require("lua.componentSystem.render.RenderDirVelocity")
+mod.AirResistance= require("lua.componentSystem.AirResistance")
+mod.LowSpeedDeath= require("lua.componentSystem.LowSpeedDeath")
 mod.archetype = require("lua.module.archetype")
 return mod

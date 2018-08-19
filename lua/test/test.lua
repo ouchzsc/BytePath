@@ -1,50 +1,39 @@
 local test = {}
 
 function test.f1()
-    local items, len = mod.bump.world:getItems()
-    for k, entity in pairs(items) do
-        if entity.name=="Player" then
-            entity:removeComponent(mod.Gravity)
-        end
+    local px,py = math.random(200, 310),math.random(320, 350)
+    for i = 1, 80 do
+        local particle = mod.Entity.create(mod.archetype.particle)
+        particle:setData({
+            x = px,
+            y = py,
+            w = math.random(1, 5), h = 2,
+            vx = math.random(-800, 800),
+            vy = math.random(-800, 800),
+            airResist = math.random(200, 2000)
+        })
+        particle:setActive(true)
     end
 end
 
 function test.f2()
-    --local items, len = mod.bump.world:getItems()
-    --for k, entity in pairs(items) do
-    --    if entity.name=="Player" then
-    --        entity:addComponent(mod.Gravity)
-    --    end
-    --end
-    --mod.debug = true
 end
 
 function test.f3()
-    --mod.debug = nil
-    test.showPlayersComponents()
 end
 
 function test.showPlayersComponents()
     print("Player components:----------------------")
     local items, len = mod.bump.world:getItems()
     for k, entity in pairs(items) do
-        if entity.name=="Player" then
-            for cls,com in pairs(entity.components) do
-                for name,modcls in pairs(mod) do
-                    if modcls==cls then
-                        print(com.isActive,name,com)
+        if entity.name == "Player" then
+            entity.components:ForEach(function(cls, com)
+                for name, modcls in pairs(mod) do
+                    if modcls == cls then
+                        print(com.isActive, name, com)
                     end
                 end
-                --if cls==mod.Gravity then
-                --    --print(com.isActive)
-                --    com:setActive(true)
-                --    print("the Gravity",com)
-                --end
-                --if(cls==mod.Gravity and com.isActive) then
-                --    print("Gravity isActive",com)
-                --end
-            end
-
+            end)
         end
     end
 end

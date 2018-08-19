@@ -13,5 +13,8 @@ config.ay = 10000
 config.bulletVelocity = 800
 config.bulletlifetime = 2
 config.defaultColor = { r = 0, g = 1, b = 1 }
+config.particleVelocityRatio = 0.1
+config.lowSpeedSq = 250
+config.defaultAirResist = 500
 
 return config

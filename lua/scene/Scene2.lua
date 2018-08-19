@@ -7,16 +7,15 @@ function Scene2:onNew()
     player:setData({ x = 0, y = 190, w = 50, h = 50 })
     player:setData({ name = "Player" })
     player:setData({ team = "team1" })
-    player:setData({ worldCam = camera.components[mod.WorldCamera] })
+    player:setData({ worldCam = camera:getComponent(mod.WorldCamera) })
     player:setData({ weapons = { "Shoot", "Shoot3", "Shoot2" } })
     player:setActive(true)
-
 
     camera:setData({ x = 0, y = 0, w = mod.config.width, h = mod.config.height, followTarget = player })
     camera:setActive(true)
 
     local mouse = mod.Entity.create(mod.archetype.cursor)
-    mouse:setData({ worldCam = camera.components[mod.WorldCamera] })
+    mouse:setData({ worldCam = camera:getComponent(mod.WorldCamera) })
     mouse:setData({ x = 0, y = 0, w = 20, h = 20, name = "mouse" })
     mouse:setActive(true)
 
