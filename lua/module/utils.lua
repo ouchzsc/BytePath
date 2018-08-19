@@ -35,9 +35,11 @@ function utils.getAxis2()
 end
 
 function utils.printt(t)
+    print("-----------")
     for k, v in pairs(t) do
         print(k, v)
     end
+    print("\n")
 end
 
 return utils

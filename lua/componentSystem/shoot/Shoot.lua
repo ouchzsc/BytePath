@@ -24,7 +24,7 @@ function Shoot:tryFire()
     end
     self:fire()
     entity.isFiring = true
-    self:scheduleTimer("fire", 0.2, function()
+    self:scheduleTimer("fire", 0.1, function()
         entity.isFiring = false
     end)
 end

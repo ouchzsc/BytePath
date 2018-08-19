@@ -12,5 +12,6 @@ config.ax = 300
 config.ay = 10000
 config.bulletVelocity = 800
 config.bulletlifetime = 2
+config.defaultColor = { r = 0, g = 1, b = 1 }
 
 return config

@@ -1,12 +1,12 @@
 local Trigger = mod.ComponentSystem:new()
 
 function Trigger:onEnable()
-    self:registerEvent(mod.event.onUpdate, function()
-        self:onUpdate(dt)
+    self:registerEvent(mod.event.onLateUpdate, function()
+        self:onLateUpdate(dt)
     end)
 end
 
-function Trigger:onUpdate(dt)
+function Trigger:onLateUpdate(dt)
     local entity = self.entity
     entity.x = entity.nextX or entity.x
     entity.y = entity.nextY or entity.y

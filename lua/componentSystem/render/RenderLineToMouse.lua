@@ -12,7 +12,8 @@ function RenderLineToMouse:onDraw(entitymap)
         local worldCam = entity.worldCam
         if worldCam then
             local mx, my = worldCam:getWorldPos(love.mouse.getX(), love.mouse.getY())
-            love.graphics.setColor(0, 1, 1)
+            local color = mod.config.defaultColor
+            love.graphics.setColor(color.r,color.g,color.b)
             love.graphics.line(entity.x + entity.w / 2, entity.y + entity.h / 2, mx, my)
         end
     end

@@ -13,9 +13,11 @@ function Entity:onNew()
 end
 
 function Entity:onEnable()
+    self.__iterating = true
     for cls, com in pairs(self.components) do
         com:setActive(true)
     end
+    self.__iterating = false
 end
 
 function Entity:onDisable()
@@ -35,10 +37,12 @@ end
 
 function Entity:removeComponent(comCls)
     local com = self.components[comCls]
-    com:setActive(false)
-    com.entity = nil
-    com:destroy()
-    self.components[comCls] = nil
+    if com then
+        com:setActive(false)
+        com.entity = nil
+        com:destroy()
+        self.components[comCls] = nil
+    end
 end
 
 return Entity
