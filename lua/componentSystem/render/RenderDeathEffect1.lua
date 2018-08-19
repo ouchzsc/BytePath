@@ -21,7 +21,8 @@ function RenderDeathEffect1:onRender()
     if self.time < time1 then
         love.graphics.setColor(0.9, 0.9, 0.9)
     elseif self.time < time2 then
-        love.graphics.setColor(0.8, 0.8, 0.1)
+        local color = mod.config.yellow
+        love.graphics.setColor(color.r, color.g, color.b)
     end
     love.graphics.rectangle("fill", entity.x, entity.y, entity.w, entity.h)
     love.graphics.pop()

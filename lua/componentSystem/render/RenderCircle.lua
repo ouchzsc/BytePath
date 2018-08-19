@@ -9,7 +9,7 @@ end
 function RenderCircle:onDraw(entitymap)
     local entity = self.entity
     if entitymap[entity] then
-        local color = mod.config.defaultColor
+        local color = mod.config.blue
         love.graphics.setColor(color.r,color.g,color.b)
         love.graphics.circle("fill", entity.x, entity.y, entity.w / 2)
     end
