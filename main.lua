@@ -56,6 +56,7 @@ function love.keypressed(key)
 end
 
 function love.update(dt)
+    dt = dt * mod.config.timeScale
     main.dt = dt
     mod.event.onUpdate:Trigger(dt)
     mod.Timer.globalTimer:Update(dt)

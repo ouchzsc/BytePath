@@ -42,5 +42,6 @@ mod.RenderDirVelocity = require("lua.componentSystem.render.RenderDirVelocity")
 mod.AirResistance= require("lua.componentSystem.AirResistance")
 mod.LowSpeedDeath= require("lua.componentSystem.LowSpeedDeath")
 mod.TriggerDeath= require("lua.componentSystem.TriggerDeath")
+mod.SlowMotion= require("lua.componentSystem.SlowMotion")
 mod.archetype = require("lua.module.archetype")
 return mod

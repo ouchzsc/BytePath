@@ -8,10 +8,8 @@ function RenderDirVelocity:onRender()
     love.graphics.push()
     local olw = love.graphics.getLineWidth()
     love.graphics.setLineWidth(entity.w)
-
     mod.utils.setColor(entity.color)
     love.graphics.line(x1, y1, x2, y2)
-
     love.graphics.setLineWidth(olw)
     love.graphics.pop()
 end

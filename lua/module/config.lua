@@ -17,5 +17,5 @@ config.yellow = { r = 0.8, g = 0.8, b = 0.1 }
 config.particleVelocityRatio = 0.1
 config.lowSpeedSq = 250
 config.defaultAirResist = 500
-
+config.timeScale = 1
 return config
