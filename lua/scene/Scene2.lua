@@ -8,6 +8,7 @@ function Scene2:onNew()
     player:setData({ name = "Player" })
     player:setData({ team = "team1" })
     player:setData({ worldCam = camera.components[mod.WorldCamera] })
+
     player:setData({ worldCam = camera:getComponent(mod.WorldCamera) })
     player:setData({ weapons = { "Shoot", "Shoot3", "Shoot2" } })
     player:setActive(true)
