@@ -5,6 +5,7 @@ function love.load()
     love.mouse.setVisible(false)
     --    love.graphics.setDefaultFilter('nearest')
     love.graphics.setLineStyle("rough")
+    love.graphics.setLineWidth(1)
     local _, _, mode = love.window.getMode()
     love.window.setMode(mod.config.width, mod.config.height, mode)
     mod.Scene2:new():setActive(true)
@@ -36,15 +37,26 @@ function love.keypressed(key)
         love.event.quit()
         return
     end
-    if key == "f6" then
+    if key == "f1" then
         package.loaded["lua.test.test"] = nil
         local test = require "lua.test.test"
-        test.f6()
+        test.f1()
+    end
+    if key == "f2" then
+        package.loaded["lua.test.test"] = nil
+        local test = require "lua.test.test"
+        test.f2()
+    end
+    if key == "f3" then
+        package.loaded["lua.test.test"] = nil
+        local test = require "lua.test.test"
+        test.f3()
     end
     mod.event.onKeyPressed:Trigger(key)
 end
 
 function love.update(dt)
+    dt = dt * mod.config.timeScale
     main.dt = dt
     mod.event.onUpdate:Trigger(dt)
     mod.Timer.globalTimer:Update(dt)

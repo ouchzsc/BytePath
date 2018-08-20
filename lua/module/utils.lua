@@ -35,8 +35,22 @@ function utils.getAxis2()
 end
 
 function utils.printt(t)
+    print("-----------")
     for k, v in pairs(t) do
         print(k, v)
+    end
+    print("\n")
+end
+
+function utils.setColor(color)
+    love.graphics.setColor(color.r, color.g, color.b, color.a)
+end
+
+function utils.randomFrom(listTable)
+    local count = #listTable
+    if count > 0 then
+        local idx = math.random(1, count)
+        return listTable[idx]
     end
 end
 

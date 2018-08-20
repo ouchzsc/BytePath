@@ -149,7 +149,6 @@ function StreamMap:ForEach(func, ...)
     self.depth = self.depth - 1
 end
 
-
 function StreamMap:Find(match, ...)
     self:_trycompact()
 

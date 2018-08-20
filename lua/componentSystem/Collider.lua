@@ -3,8 +3,8 @@ local Collider = mod.ComponentSystem:new()
 --x,y,nextX,nextY,isRigidbody
 
 function Collider:onEnable()
-    self:registerEvent(mod.event.onUpdate, function(dt)
-        self:onUpdate(dt)
+    self:registerEvent(mod.event.onLateUpdate, function(dt)
+        self:onLateUpdate(dt)
     end)
     self.entity.isCollider = true
 end
@@ -22,7 +22,7 @@ local filter = function(item, other)
     end
 end
 
-function Collider:onUpdate(dt)
+function Collider:onLateUpdate(dt)
     local entity = self.entity
     entity.nextX = entity.nextX or entity.x
     entity.nextY = entity.nextY or entity.y
