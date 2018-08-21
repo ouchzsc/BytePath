@@ -8,7 +8,7 @@ function love.load()
     love.graphics.setLineWidth(1)
     local _, _, mode = love.window.getMode()
     love.window.setMode(mod.config.width, mod.config.height, mode)
-    mod.Scene2:new():setActive(true)
+    mod.Scene3:new():setActive(true)
     main.dt = 0
 end
 
@@ -56,7 +56,7 @@ function love.keypressed(key)
 end
 
 function love.update(dt)
-    dt = dt * mod.config.timeScale
+    dt = dt * mod.timeScaleMgr.timescale
     main.dt = dt
     mod.event.onUpdate:Trigger(dt)
     mod.Timer.globalTimer:Update(dt)

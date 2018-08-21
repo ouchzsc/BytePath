@@ -54,4 +54,15 @@ function utils.randomFrom(listTable)
     end
 end
 
+function utils.getShakewave(hz, duration, amp, t)
+    if t < 0 or t > duration then
+        return 0
+    end
+    local x = t * hz * duration * math.pi * 2
+    local y1 = math.sin(x)
+    local y2 = y1 * amp
+    local y3 = y2 * (1 - t / duration)*math.random(-100,100)/100
+    return y3
+end
+
 return utils

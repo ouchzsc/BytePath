@@ -9,7 +9,7 @@ end
 function TriggerDeath:onKeyPressed(key)
     if key == "k" then
         self:explode(self.entity)
-        --self.entity:addComponent(mod.SlowMotion)
+        mod.timeScaleMgr.setScale(0.2, 0.2)
     end
 end
 

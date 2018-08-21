@@ -19,6 +19,7 @@ function test.f1()
 end
 
 function test.f2()
+    mod.timeScaleMgr.setScale(0.2, 0.4)
 end
 
 function test.f3()
