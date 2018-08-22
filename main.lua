@@ -8,7 +8,7 @@ function love.load()
     love.graphics.setLineWidth(1)
     local _, _, mode = love.window.getMode()
     love.window.setMode(mod.config.width, mod.config.height, mode)
-    mod.Scene3:new():setActive(true)
+    mod.Scene2:new():setActive(true)
     main.dt = 0
 end
 

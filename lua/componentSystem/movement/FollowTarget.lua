@@ -11,8 +11,12 @@ function FollowTarget:onUpdate(dt)
     if entity.followTarget == nil then
         return
     end
-    entity.nextX = entity.followTarget.x + (entity.followTarget.w - entity.w) / 2
-    entity.nextY = entity.followTarget.y + (entity.followTarget.h - entity.h) / 2
+
+    local shakeX = entity.shakeX or 0
+    local shakeY = entity.shakeY or 0
+
+    entity.nextX = entity.followTarget.x + (entity.followTarget.w - entity.w) / 2 + shakeX
+    entity.nextY = entity.followTarget.y + (entity.followTarget.h - entity.h) / 2 + shakeY
 end
 
 return FollowTarget

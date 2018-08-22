@@ -19,10 +19,11 @@ function test.f1()
 end
 
 function test.f2()
-    mod.timeScaleMgr.setScale(0.2, 0.4)
 end
 
 function test.f3()
+    mod.timeScaleMgr.setScale(0.1, 0.8)
+    mod.event.onDoShake:Trigger(mod.camMgr.cam, 0.8, 60, 15)
 end
 
 function test.showPlayersComponents()

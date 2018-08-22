@@ -23,12 +23,12 @@ function Scene3:onKeyPressed(key)
         self.shaketime = 0
     end
 end
-local hz,duration,amp=60,0.2,100
+local hz, duration, amp = 60, 0.2, 100
 
 function Scene3:onUpdate(dt)
-    local x = mod.utils.getShakewave(hz,duration,amp, self.shaketime)
-    local y = mod.utils.getShakewave(hz,duration,amp, self.shaketime)
-    mod.camMgr.cam:setData({ nextX = x, nextY =y })
+    local x = mod.utils.getShakewave(hz, duration, amp, self.shaketime)
+    local y = mod.utils.getShakewave(hz, duration, amp, self.shaketime)
+    mod.camMgr.cam:setData({ nextX = x, nextY = y })
     self.shaketime = self.shaketime + dt
 end
 
