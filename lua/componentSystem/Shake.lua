@@ -28,7 +28,7 @@ function Shake:onUpdate(dt)
     local entity = self.entity
     local x = mod.utils.getShakewave(self.frenquency, self.duration, self.amp, self.shaketime,self.randomX)
     local y = mod.utils.getShakewave(self.frenquency, self.duration, self.amp, self.shaketime,self.randomY)
-    self.entity:setData({ shakeX = x, shakeY = y })
+    entity:setData({ shakeX = x, shakeY = y })
 
     if self.shaketime < self.duration then
         self.shaketime = self.shaketime + dt
