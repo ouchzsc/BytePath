@@ -1,7 +1,7 @@
-local LowSpeedDeath = mod.ComponentSystem:new()
+local LowSpeedDeath = mod.ComponentSystem:newCls()
 
 function LowSpeedDeath:onEnable()
-    self:registerEvent(mod.event.onUpdate, function(dt)
+    self:reg(mod.event.onUpdate, function(dt)
         self:onUpdate(dt)
     end)
 end

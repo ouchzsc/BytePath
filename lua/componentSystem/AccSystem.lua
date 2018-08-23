@@ -1,7 +1,7 @@
-local AccSystem = mod.ComponentSystem:new()
+local AccSystem = mod.ComponentSystem:newCls()
 
 function AccSystem:onEnable()
-    self:registerEvent(mod.event.onUpdate, function(dt)
+    self:reg(mod.event.onUpdate, function(dt)
         self:onUpdate(dt)
     end)
 end

@@ -1,7 +1,7 @@
-local Gravity = mod.ComponentSystem:new()
+local Gravity = mod.ComponentSystem:newCls()
 
 function Gravity:onEnable()
-    self:registerEvent(mod.event.onUpdate, function(dt)
+    self:reg(mod.event.onUpdate, function(dt)
         self:onUpdate(dt)
     end)
 end

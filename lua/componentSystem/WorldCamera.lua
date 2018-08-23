@@ -1,14 +1,14 @@
-local WorldCamera = mod.ComponentSystem:new()
+local WorldCamera = mod.ComponentSystem:newCls()
 
 function WorldCamera:onNew()
     self.mw, self.mh = 0, 0
 end
 
 function WorldCamera:onEnable()
-    self:registerEvent(mod.event.draw, function()
+    self:reg(mod.event.draw, function()
         self:draw()
     end)
-    self:registerEvent(mod.event.resize, function(w, h)
+    self:reg(mod.event.resize, function(w, h)
         self:resize(w, h)
     end)
 end

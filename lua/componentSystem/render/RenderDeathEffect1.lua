@@ -1,4 +1,4 @@
-local RenderDeathEffect1 = mod.RenderInView:new()
+local RenderDeathEffect1 = mod.RenderInView:newCls()
 
 local time0 = 0
 local time1 = 0.1

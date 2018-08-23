@@ -1,4 +1,4 @@
-local RenderDirVelocity = mod.RenderInView:new()
+local RenderDirVelocity = mod.RenderInView:newCls()
 
 function RenderDirVelocity:onRender()
     local entity = self.entity

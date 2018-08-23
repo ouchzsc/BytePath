@@ -1,7 +1,7 @@
-local WeaponSystem = mod.ComponentSystem:new()
+local WeaponSystem = mod.ComponentSystem:newCls()
 
 function WeaponSystem:onEnable()
-    self:registerEvent(mod.event.onKeyPressed, function(key)
+    self:reg(mod.event.onKeyPressed, function(key)
         self:onKeyPressed(key)
     end)
     local entity = self.entity

@@ -1,7 +1,7 @@
-local DirMove = mod.ComponentSystem:new()
+local DirMove = mod.ComponentSystem:newCls()
 
 function DirMove:onEnable()
-    self:registerEvent(mod.event.onUpdate, function(dt)
+    self:reg(mod.event.onUpdate, function(dt)
         self:onUpdate(dt)
     end)
 end

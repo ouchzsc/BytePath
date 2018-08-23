@@ -1,7 +1,7 @@
-local RenderCursor = mod.ComponentSystem:new()
+local RenderCursor = mod.ComponentSystem:newCls()
 
 function RenderCursor:onEnable()
-    self:registerEvent(mod.event.onDraw, function(entitymap)
+    self:reg(mod.event.onDraw, function(entitymap)
         self:onDraw(entitymap)
     end)
 end

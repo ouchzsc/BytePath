@@ -1,7 +1,7 @@
-local Trigger = mod.ComponentSystem:new()
+local Trigger = mod.ComponentSystem:newCls()
 
 function Trigger:onEnable()
-    self:registerEvent(mod.event.onLateUpdate, function()
+    self:reg(mod.event.onLateUpdate, function()
         self:onLateUpdate(dt)
     end)
 end

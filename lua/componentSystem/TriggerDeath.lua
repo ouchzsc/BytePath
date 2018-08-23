@@ -1,7 +1,7 @@
-local TriggerDeath = mod.ComponentSystem:new()
+local TriggerDeath = mod.ComponentSystem:newCls()
 
 function TriggerDeath:onEnable()
-    self:registerEvent(mod.event.onKeyPressed, function(key)
+    self:reg(mod.event.onKeyPressed, function(key)
         self:onKeyPressed(key)
     end)
 end
@@ -9,7 +9,8 @@ end
 function TriggerDeath:onKeyPressed(key)
     if key == "k" then
         self:explode(self.entity)
-        mod.timeScaleMgr.setScale(0.2, 0.2)
+        mod.event.onDoShake:Trigger(mod.camMgr.cam, 0.2, 60, 15)
+        mod.timeScaleMgr.setScale(0.1, 1)
     end
 end
 

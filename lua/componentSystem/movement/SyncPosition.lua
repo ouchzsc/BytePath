@@ -1,7 +1,7 @@
-local SyncPosition = mod.ComponentSystem:new()
+local SyncPosition = mod.ComponentSystem:newCls()
 
 function SyncPosition:onEnable()
-    self:registerEvent(mod.event.onLateUpdate, function(dt)
+    self:reg(mod.event.onLateUpdate, function(dt)
         self:onLateUpdate(dt)
     end)
 end

@@ -1,10 +1,10 @@
-local Axis2 = mod.ComponentSystem:new()
+local Axis2 = mod.ComponentSystem:newCls()
 
 -- r: x,y,v
 -- w: nextX,nextY
 
 function Axis2:onEnable()
-    self:registerEvent(mod.event.onUpdate, function(dt)
+    self:reg(mod.event.onUpdate, function(dt)
         self:onUpdate(dt)
     end)
 end

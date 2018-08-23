@@ -1,4 +1,4 @@
-local ComponentSystem = mod.Object:new()
+local ComponentSystem = mod.Object:newCls()
 
 function ComponentSystem:setData(data)
     for k, v in pairs(data) do
@@ -70,7 +70,7 @@ function ComponentSystem:unscheduleTimer(fixid)
     end
 end
 
-function ComponentSystem:registerEvent(simpleevt, handler, arg1)
+function ComponentSystem:reg(simpleevt, handler, arg1)
     if self.__evthandlers == nil then
         self.__evthandlers = mod.Stream:New()
     end

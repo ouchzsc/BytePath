@@ -1,5 +1,5 @@
 --local StreamMap = require "lua.common.StreamMap"
-local Entity = mod.ComponentSystem:new()
+local Entity = mod.ComponentSystem:newCls()
 
 function Entity.create(types)
     local entity = Entity:new()

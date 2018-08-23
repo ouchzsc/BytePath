@@ -1,4 +1,4 @@
-local Scene3 = mod.Scene:new()
+local Scene3 = mod.Scene:newCls()
 
 function Scene3:onNew()
     mod.camMgr.initACam()
@@ -6,13 +6,13 @@ function Scene3:onNew()
 end
 
 function Scene3:onEnable()
-    self:registerEvent(mod.event.onUpdate, function(dt)
+    self:reg(mod.event.onUpdate, function(dt)
         self:onUpdate(dt)
     end)
-    self:registerEvent(mod.event.onDraw, function(dt)
+    self:reg(mod.event.onDraw, function(dt)
         self:onDraw()
     end)
-    self:registerEvent(mod.event.onKeyPressed, function(key)
+    self:reg(mod.event.onKeyPressed, function(key)
         self:onKeyPressed(key)
     end)
     self.shaketime = 0

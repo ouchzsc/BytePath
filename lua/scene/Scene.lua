@@ -1,4 +1,4 @@
-local Scene = mod.ComponentSystem:new()
+local Scene = mod.ComponentSystem:newCls()
 
 function Scene:onNew()
 

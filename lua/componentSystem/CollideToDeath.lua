@@ -1,7 +1,7 @@
-local CollideToDeath = mod.ComponentSystem:new()
+local CollideToDeath = mod.ComponentSystem:newCls()
 
 function CollideToDeath:onEnable()
-    self:registerEvent(mod.event.onCollision, function(cols)
+    self:reg(mod.event.onCollision, function(cols)
         self:onCollision(cols)
     end)
 end

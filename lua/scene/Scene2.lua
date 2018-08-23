@@ -1,4 +1,4 @@
-local Scene2 = mod.Scene:new()
+local Scene2 = mod.Scene:newCls()
 
 function Scene2:onNew()
 

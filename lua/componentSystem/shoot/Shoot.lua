@@ -1,7 +1,11 @@
-local Shoot = mod.ComponentSystem:new()
+local Shoot = mod.ComponentSystem:newCls()
+
+function Shoot:onNew()
+    self.cam = mod.camMgr.cam:getComponent(mod.WorldCamera)
+end
 
 function Shoot:onEnable()
-    self:registerEvent(mod.event.onUpdate, function(dt)
+    self:reg(mod.event.onUpdate, function(dt)
         self:onUpdate(dt)
     end)
 end
@@ -31,24 +35,21 @@ end
 
 function Shoot:fire()
     local entity = self.entity
-    local worldCam = entity.worldCam
-    if worldCam then
-        local bullet = mod.Entity.create(mod.archetype.bullet)
-        local entityCenterX, entityCenterY = entity.x + entity.w / 2, entity.y + entity.h / 2
-        bullet:setData({ x = entityCenterX, y = entityCenterY, w = 10, h = 10, name = "bullet" })
-        local mx, my = worldCam:getWorldPos(love.mouse.getX(), love.mouse.getY())
-        local sx, sy = mx - entityCenterX, my - entityCenterY
-        local c = math.sqrt(sx * sx + sy * sy)
-        local angle = math.acos(sx / c)
-        if sy > 0 then
-            angle = math.pi * 2 - angle
-        end
-        bullet:setData({ angle = angle })
-        bullet:setData({ v = 800 })
-        bullet:setData({ timeLife = 2 })
-        bullet:setData({ team = "team1" })
-        bullet:setActive(true)
+    local bullet = mod.Entity.create(mod.archetype.bullet)
+    local entityCenterX, entityCenterY = entity.x + entity.w / 2, entity.y + entity.h / 2
+    bullet:setData({ x = entityCenterX, y = entityCenterY, w = 10, h = 10, name = "bullet" })
+    local mx, my = self.cam:getWorldPos(love.mouse.getX(), love.mouse.getY())
+    local sx, sy = mx - entityCenterX, my - entityCenterY
+    local c = math.sqrt(sx * sx + sy * sy)
+    local angle = math.acos(sx / c)
+    if sy > 0 then
+        angle = math.pi * 2 - angle
     end
+    bullet:setData({ angle = angle })
+    bullet:setData({ v = 800 })
+    bullet:setData({ timeLife = 2 })
+    bullet:setData({ team = "team1" })
+    bullet:setActive(true)
 end
 
 return Shoot

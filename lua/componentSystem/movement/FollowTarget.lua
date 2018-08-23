@@ -1,7 +1,7 @@
-local FollowTarget = mod.ComponentSystem:new()
+local FollowTarget = mod.ComponentSystem:newCls()
 
 function FollowTarget:onEnable()
-    self:registerEvent(mod.event.onUpdate, function(dt)
+    self:reg(mod.event.onUpdate, function(dt)
         self:onUpdate(dt)
     end)
 end

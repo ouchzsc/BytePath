@@ -1,12 +1,12 @@
-local Shake = mod.ComponentSystem:new()
+local Shake = mod.ComponentSystem:newCls()
 
 function Shake:onEnable()
-    self:registerEvent(mod.event.onDoShake, function(entity, duration, frenquency, amp)
+    self:reg(mod.event.onDoShake, function(entity, duration, frenquency, amp)
         if entity == self.entity then
             self:doShake(duration, frenquency, amp)
         end
     end)
-    self:registerEvent(mod.event.onUpdate, function(dt)
+    self:reg(mod.event.onUpdate, function(dt)
         self:onUpdate(dt)
     end)
     self.duration = 0

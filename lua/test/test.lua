@@ -19,11 +19,13 @@ function test.f1()
 end
 
 function test.f2()
+    test.printDebug()
 end
 
 function test.f3()
-    mod.timeScaleMgr.setScale(0.1, 0.8)
-    mod.event.onDoShake:Trigger(mod.camMgr.cam, 0.8, 60, 15)
+    local enemy = mod.Entity.create(mod.archetype.enemy)
+    enemy:setData({ x = 300, y = 300, w = 40, h = 40,team="enemy" })
+    enemy:setActive(true)
 end
 
 function test.showPlayersComponents()

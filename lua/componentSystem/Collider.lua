@@ -1,9 +1,9 @@
-local Collider = mod.ComponentSystem:new()
+local Collider = mod.ComponentSystem:newCls()
 
 --x,y,nextX,nextY,isRigidbody
 
 function Collider:onEnable()
-    self:registerEvent(mod.event.onLateUpdate, function(dt)
+    self:reg(mod.event.onLateUpdate, function(dt)
         self:onLateUpdate(dt)
     end)
     self.entity.isCollider = true

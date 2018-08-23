@@ -1,7 +1,7 @@
-local AirResistance = mod.ComponentSystem:new()
+local AirResistance = mod.ComponentSystem:newCls()
 
 function AirResistance:onEnable()
-    self:registerEvent(mod.event.onUpdate, function(dt)
+    self:reg(mod.event.onUpdate, function(dt)
         self:onUpdate(dt)
     end)
 end

@@ -1,4 +1,4 @@
-local TimeToLive = mod.ComponentSystem:new()
+local TimeToLive = mod.ComponentSystem:newCls()
 
 function TimeToLive:onEnable()
     local entity = self.entity

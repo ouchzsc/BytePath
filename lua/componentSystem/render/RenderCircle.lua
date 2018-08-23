@@ -1,7 +1,7 @@
-local RenderCircle = mod.ComponentSystem:new()
+local RenderCircle = mod.ComponentSystem:newCls()
 
 function RenderCircle:onEnable()
-    self:registerEvent(mod.event.onDraw, function(entitymap)
+    self:reg(mod.event.onDraw, function(entitymap)
         self:onDraw(entitymap)
     end)
 end

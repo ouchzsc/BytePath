@@ -1,7 +1,7 @@
-local RenderInView = mod.ComponentSystem:new()
+local RenderInView = mod.ComponentSystem:newCls()
 
 function RenderInView:onEnable()
-    self:registerEvent(mod.event.onDraw, function(entitymap)
+    self:reg(mod.event.onDraw, function(entitymap)
         self:onDraw(entitymap)
     end)
 end

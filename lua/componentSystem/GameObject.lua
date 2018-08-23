@@ -1,4 +1,4 @@
-local GameObject = mod.ComponentSystem:new()
+local GameObject = mod.ComponentSystem:newCls()
 --data:x,y,w,h,name
 
 function GameObject:onEnable()
