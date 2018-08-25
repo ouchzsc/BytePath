@@ -1,6 +1,6 @@
 local Collider = mod.ComponentSystem:newCls()
 
---x,y,nextX,nextY,isRigidbody
+--x,y,nextX,nextY
 
 function Collider:onEnable()
     self:reg(mod.event.onLateUpdate, function(dt)
@@ -14,12 +14,19 @@ function Collider:onDisable()
 end
 
 local filter = function(item, other)
-    if item.team == other.team then
+    if item.isTrigger or other.isTrigger then
         return 'cross'
     end
-    if item.isCollider and other.isCollider then
+    if item.iswall or other.iswall then
         return 'slide'
     end
+    return 'cross'
+    --if item.team == other.team then
+    --    return 'cross'
+    --end
+    --if item.isCollider and other.isCollider then
+    --    return 'slide'
+    --end
 end
 
 function Collider:onLateUpdate(dt)

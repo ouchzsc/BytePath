@@ -4,6 +4,11 @@ function Trigger:onEnable()
     self:reg(mod.event.onLateUpdate, function()
         self:onLateUpdate(dt)
     end)
+    self.entity.isTrigger = true
+end
+
+function Trigger:onDisable()
+    self.entity.isTrigger = nil
 end
 
 function Trigger:onLateUpdate(dt)
