@@ -17,6 +17,23 @@ local filter = function(item, other)
     if item.isTrigger or other.isTrigger then
         return 'cross'
     end
+
+    if item.colliderTag == nil then
+        print("colliderTag nil", item.name)
+        return 'slide'
+    end
+
+    if other.colliderMask == nil then
+        print("colliderMask nil", other.name)
+        return 'slide'
+    end
+
+    if bit.band(item.colliderTag, other.colliderMask) == 0 then
+        return 'cross'
+    else
+        return 'slide'
+    end
+
     if item.iswall or other.iswall then
         return 'slide'
     end

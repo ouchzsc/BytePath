@@ -18,19 +18,17 @@ function Shoot2:fire()
     local bullet2 = mod.Entity.create(mod.archetype.bullet)
     local bullet3 = mod.Entity.create(mod.archetype.bullet)
 
-    local commondata = { x = entityCenterX, y = entityCenterY, timeLife = 2, v = 800, team = "team1", w = 10, h = 10, name = "bullet" }
+    bullet:setData(mod.entityData.bullet)
+    bullet2:setData(mod.entityData.bullet)
+    bullet3:setData(mod.entityData.bullet)
 
-    bullet:setData(commondata)
-    bullet2:setData(commondata)
-    bullet3:setData(commondata)
-
-    bullet:setData({ angle = angle })
+    bullet:setData({ x = entityCenterX, y = entityCenterY, angle = angle })
     bullet:setActive(true)
 
-    bullet2:setData({ angle = angle2 })
+    bullet2:setData({ x = entityCenterX, y = entityCenterY, angle = angle2 })
     bullet2:setActive(true)
 
-    bullet3:setData({ angle = angle3 })
+    bullet3:setData({ x = entityCenterX, y = entityCenterY, angle = angle3 })
     bullet3:setActive(true)
 end
 

@@ -19,12 +19,14 @@ function test.f1()
 end
 
 function test.f2()
-    test.printDebug()
+   mod.utils.printt( mod.playerMgr.player)
+   mod.utils.printt( mod.Scene2.down)
 end
 
 function test.f3()
     local enemy = mod.Entity.create(mod.archetype.enemy)
-    enemy:setData({ x = 300, y = 300, w = 40, h = 40,team="enemy" })
+    enemy:setData({ x = 300, y = 300, w = 40, h = 40 })
+    enemy:setData(mod.entityData.enemy)
     enemy:setActive(true)
 end
 

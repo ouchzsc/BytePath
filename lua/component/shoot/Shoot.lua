@@ -37,7 +37,7 @@ function Shoot:fire()
     local entity = self.entity
     local bullet = mod.Entity.create(mod.archetype.bullet)
     local entityCenterX, entityCenterY = entity.x + entity.w / 2, entity.y + entity.h / 2
-    bullet:setData({ x = entityCenterX, y = entityCenterY, w = 10, h = 10, name = "bullet" })
+
     local mx, my = self.cam:getWorldPos(love.mouse.getX(), love.mouse.getY())
     local sx, sy = mx - entityCenterX, my - entityCenterY
     local c = math.sqrt(sx * sx + sy * sy)
@@ -45,10 +45,8 @@ function Shoot:fire()
     if sy > 0 then
         angle = math.pi * 2 - angle
     end
-    bullet:setData({ angle = angle })
-    bullet:setData({ v = 800 })
-    bullet:setData({ timeLife = 2 })
-    bullet:setData({ team = "team1" })
+    bullet:setData({ x = entityCenterX, y = entityCenterY, angle = angle })
+    bullet:setData(mod.entityData.bullet)
     bullet:setActive(true)
 end
 
