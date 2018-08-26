@@ -27,6 +27,7 @@ function Shoot:tryFire()
         return
     end
     self:fire()
+    mod.soundMgr.play(mod.soundMgr.FIRE)
     entity.isFiring = true
     self:scheduleTimer("fire", 0.1, function()
         entity.isFiring = false
@@ -46,7 +47,7 @@ function Shoot:fire()
         angle = math.pi * 2 - angle
     end
     bullet:setData({ x = entityCenterX, y = entityCenterY, angle = angle })
-    bullet:setData(mod.entityData.bullet)
+    bullet:setData(mod.commondata.bullet)
     bullet:setActive(true)
 end
 

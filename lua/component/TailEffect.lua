@@ -11,7 +11,8 @@ function TailEffect:createTailParticle()
     local minSpeed = 100
     if math.abs(entity.vx) > minSpeed or math.abs(entity.vy) > minSpeed then
         local tailpar = mod.Entity.create(mod.archetype.tailparticle)
-        tailpar:setData({ x = entity.x, y = entity.y, w = entity.w, h = entity.h, timeLife = 0.4 })
+        tailpar:setData({ x = entity.x, y = entity.y, w = entity.w, h = entity.h })
+        tailpar:setData(mod.commondata.tailparticle)
         tailpar:setActive(true)
     end
 end

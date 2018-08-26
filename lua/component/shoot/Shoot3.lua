@@ -15,7 +15,7 @@ function Shoot3:fire()
     local bullet2 = mod.Entity.create(mod.archetype.bullet)
     local bullet3 = mod.Entity.create(mod.archetype.bullet)
 
-    local commondata = mod.entityData.bullet
+    local commondata = mod.commondata.bullet
     bullet:setData(commondata)
     bullet2:setData(commondata)
     bullet3:setData(commondata)

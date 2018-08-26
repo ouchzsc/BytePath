@@ -11,6 +11,7 @@ function CollideToDeath:onCollision(cols)
     for k, col in ipairs(cols) do
         if col.type ~= "cross" then
             if col.item == entity or col.other == entity then
+                mod.soundMgr.play(mod.soundMgr.COLLISION)
                 entity:setActive(false)
                 local normalx, normaly = col.normal.x, col.normal.y
                 if col.other == entity then

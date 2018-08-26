@@ -2,7 +2,7 @@ local playerMgr = {}
 
 function playerMgr.init()
     local player = mod.Entity.create(mod.archetype.player)
-    player:setData(mod.entityData.player)
+    player:setData(mod.commondata.player)
     player:setActive(true)
     playerMgr.player = player
     mod.camMgr.cam:setData({ followTarget = player })

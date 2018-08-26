@@ -18,9 +18,9 @@ function Shoot2:fire()
     local bullet2 = mod.Entity.create(mod.archetype.bullet)
     local bullet3 = mod.Entity.create(mod.archetype.bullet)
 
-    bullet:setData(mod.entityData.bullet)
-    bullet2:setData(mod.entityData.bullet)
-    bullet3:setData(mod.entityData.bullet)
+    bullet:setData(mod.commondata.bullet)
+    bullet2:setData(mod.commondata.bullet)
+    bullet3:setData(mod.commondata.bullet)
 
     bullet:setData({ x = entityCenterX, y = entityCenterY, angle = angle })
     bullet:setActive(true)
