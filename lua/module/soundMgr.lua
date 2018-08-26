@@ -2,7 +2,7 @@ local soundMgr = {}
 
 soundMgr.FIRE="music/fire.ogg"
 soundMgr.COLLISION="music/collision.ogg"
-soundMgr.BG="music/bg.wav"
+soundMgr.BG="music/bg.ogg"
 soundMgr.BOOM="music/boom.ogg"
 
 function soundMgr.init()
