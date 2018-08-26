@@ -14,12 +14,20 @@ function Entity:onNew()
 end
 
 function Entity:onEnable()
+    if self.isEnable then
+        return
+    end
+    self.isEnable = true
     self.components:ForEach(function(cls, com)
         com:setActive(true)
     end)
 end
 
 function Entity:onDisable()
+    if not self.isEnable then
+        return
+    end
+    self.isEnable = false
     self.components:ForEach(function(cls, com)
         com:setActive(false)
     end)

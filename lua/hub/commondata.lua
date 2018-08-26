@@ -14,9 +14,10 @@ commondata.bullet = { timeLife = 2, v = 800, team = "team1", w = 10, h = 10, nam
                       colliderTag = mod.colliderMask.tag_playerbullet,
                       colliderMask = mod.colliderMask.mask_playerbullet,
                       colliderHurt = mod.colliderMask.hurt_playerbullet,
-                      attack = 1, }
+                      attack = 1 }
 
 commondata.enemy = { team = "enemy", life = 10,
+                     hpx = 0, hpy = -10,
                      colliderTag = mod.colliderMask.tag_enemy,
                      colliderMask = mod.colliderMask.mask_enemy,
                      colliderHurt = mod.colliderMask.hurt_enemy, }
@@ -34,6 +35,5 @@ commondata.brick = { w = mod.config.brickSize, h = mod.config.brickSize,
                      hpx = 0, hpy = 10,
                      life = 10, }
 
-commondata.tailparticle = { timeLife = 0.4,
-                            imgpath = "img/player.png", }
+commondata.tailparticle = { timeLife = 0.4, imgpath = "img/player.png", }
 return commondata

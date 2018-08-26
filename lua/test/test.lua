@@ -1,5 +1,8 @@
 local test = {}
 
+--mod.event.onDoShake:Trigger(mod.camMgr.cam, 0.2, 60, 15)
+--mod.timeScaleMgr.setScale(0.1, 1)
+
 function test.f1()
     local px, py = math.random(200, 310), math.random(320, 350)
     for i = 1, 50 do
