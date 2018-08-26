@@ -4,8 +4,6 @@ function DeadBodyOnDeath:onEntityEvent(type, data)
     local entity = self.entity
     if type == "death" then
         mod.soundMgr.play(mod.soundMgr.COLLISION)
-
-        print(entity.name,"createDeadBody")
         self:createDeadBody(data.col)
         return
     end

@@ -8,7 +8,7 @@ function Scene4:onNew()
     mod.soundMgr.play(mod.soundMgr.BG)
     for x = 1, 50 do
         for y = 1, 50 do
-            if math.random() > 0.4 then
+            if math.random() > 0.6 then
                 local brick = mod.Entity.create(mod.archetype.ground)
                 brick:setData(mod.commondata.brick)
                 brick:setData({ x = x * mod.config.brickSize, y = y * mod.config.brickSize })

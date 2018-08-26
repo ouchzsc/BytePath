@@ -3,7 +3,7 @@ config.width = 1200
 config.height = 600
 config.sx = 1
 config.sy = 1
-config.cellsize = 50
+config.cellsize = 36
 config.gravity = 1000
 config.defaultFriction = 20
 config.maxVx = 300
@@ -19,5 +19,5 @@ config.particleVelocityRatio = 0.1
 config.lowSpeedSq = 250
 config.defaultAirResist = 500
 config.timeScale = 1
-config.brickSize = 60
+config.brickSize = 36
 return config
