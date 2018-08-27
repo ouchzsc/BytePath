@@ -7,7 +7,8 @@ commondata.player = { x = 0, y = 190, w = 23, h = 47,
                       colliderTag = mod.colliderMask.tag_player,
                       colliderMask = mod.colliderMask.mask_player,
                       colliderHurt = mod.colliderMask.hurt_player,
-                      imgpath = "img/player.png",jumpEnergy =0.2 ,
+                      imgpath = "img/player.png", jumpEnergy = 0.2,
+                      jumpEnergyMax = 1,
                       life = 20 }
 
 commondata.bullet = { timeLife = 2, v = 800, team = "team1", w = 10, h = 10, name = "bullet",

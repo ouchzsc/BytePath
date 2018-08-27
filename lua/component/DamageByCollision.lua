@@ -1,20 +1,14 @@
 local DamageByCollision = mod.ComponentSystem:newCls()
 
 function DamageByCollision:onPopEvent(type, data)
-    if type == "onCollison" then
+    if type == "onCollision" then
         self:onCollision(data)
     end
 end
 
-function DamageByCollision:onCollision(col)
+function DamageByCollision:onCollision(data)
     local entity = self.entity
-    local other = nil
-    if col.item == entity then
-        other = col.other
-    else
-        other = col.item
-    end
-
+    local other = data.other
     if other.colliderHurt == nil then
         return
     end

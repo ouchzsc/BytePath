@@ -10,7 +10,9 @@ archetype.ground = { mod.GameObject, mod.RenderRect, mod.Collider, mod.RenderLif
 archetype.player = { mod.GameObject, mod.RenderName, mod.RenderSprite, mod.RenderLife,
                      mod.ExplodeOnDeath, mod.TailEffect, mod.RenderLineToMouse,
                      mod.ShakeCamOnDeath,mod.SlowTimeOnDeath,
-                     mod.Axis1, mod.Collider, mod.AccSystem, mod.Gravity, mod.WeaponSystem, mod.LowLifeDeath}
+                     mod.Axis1, mod.Collider, mod.AccSystem,
+                     mod.RecoverJumpForceByLand,
+                     mod.Gravity, mod.WeaponSystem, mod.LowLifeDeath}
 
 archetype.enemy = { mod.GameObject, mod.Collider,
                     mod.RenderRect, mod.AccSystem,

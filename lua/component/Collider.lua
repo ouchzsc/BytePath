@@ -75,8 +75,8 @@ function Collider:onLateUpdate(dt)
             end
         end
 
-        col.item:popEvent("onCollison", col)
-        col.other:popEvent("onCollison", col)
+        col.item:popEvent("onCollision", { col = col, entity = col.item, other = col.other })
+        col.other:popEvent("onCollision", { col = col, entity = col.other, other = col.item })
     end
 end
 
