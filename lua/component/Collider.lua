@@ -38,12 +38,6 @@ local filter = function(item, other)
         return 'slide'
     end
     return 'cross'
-    --if item.team == other.team then
-    --    return 'cross'
-    --end
-    --if item.isCollider and other.isCollider then
-    --    return 'slide'
-    --end
 end
 
 function Collider:onLateUpdate(dt)
@@ -80,9 +74,9 @@ function Collider:onLateUpdate(dt)
                 entity.axMap.fraction = math.max(entity.axMap.fraction, col.other.friction or mod.config.defaultFriction)
             end
         end
-    end
-    if len > 0 then
-        mod.event.onCollision:Trigger(cols)
+
+        col.item:popEvent("onCollison", col)
+        col.other:popEvent("onCollison", col)
     end
 end
 

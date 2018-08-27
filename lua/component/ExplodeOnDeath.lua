@@ -1,6 +1,6 @@
 local ExplodeOnDeath = mod.ComponentSystem:newCls()
 
-function ExplodeOnDeath:onEntityEvent(type)
+function ExplodeOnDeath:onPopEvent(type)
     if type == "death" then
         self:explode(self.entity)
         mod.soundMgr.play(mod.soundMgr.BOOM)

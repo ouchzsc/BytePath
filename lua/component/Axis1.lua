@@ -11,13 +11,27 @@ end
 
 function Axis1:onUpdate(dt)
     local entity = self.entity
+
+
     entity.axMap = entity.axMap or {}
     entity.ayMap = entity.ayMap or {}
 
     local x, y = mod.utils.getAxis1()
 
     entity.axMap.axis1 = x * mod.config.ax
-    entity.ayMap.axis1 = y * mod.config.ay
+
+    if y<0 then
+        entity.jumpEnergy = entity.jumpEnergy or 0
+        if entity.jumpEnergy <= 0 then
+            entity.ayMap.axis1 = 0
+            return
+        end
+        entity.jumpEnergy = entity.jumpEnergy - dt
+        entity.ayMap.axis1 = y * mod.config.ay
+    else
+        entity.ayMap.axis1 = y * mod.config.ay
+    end
+
 
 end
 

@@ -1,6 +1,6 @@
 local DeadBodyOnDeath = mod.ComponentSystem:newCls()
 
-function DeadBodyOnDeath:onEntityEvent(type, data)
+function DeadBodyOnDeath:onPopEvent(type, data)
     local entity = self.entity
     if type == "death" then
         mod.soundMgr.play(mod.soundMgr.COLLISION)

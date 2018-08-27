@@ -57,8 +57,8 @@ end
 
 function Entity:popEvent(eventtype, data)
     self.components:ForEach(function(cls, com)
-        if com.onEntityEvent then
-            com:onEntityEvent(eventtype, data)
+        if com.isActive and com.onPopEvent then
+            com:onPopEvent(eventtype, data)
         end
     end)
 end

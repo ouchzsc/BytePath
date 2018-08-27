@@ -29,7 +29,7 @@ function Shoot:tryFire()
     self:fire()
     mod.soundMgr.play(mod.soundMgr.FIRE)
     entity.isFiring = true
-    self:scheduleTimer("fire", 0.1, function()
+    self:scheduleTimer("fire", 0.2, function()
         entity.isFiring = false
     end)
 end
