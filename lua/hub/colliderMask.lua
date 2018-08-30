@@ -20,7 +20,7 @@ colliderMask.mask_wall = bit.bor(colliderMask.tag_player,
 
 colliderMask.hurt_player = 0
 colliderMask.hurt_playerbullet = bit.bor(colliderMask.tag_enemy, colliderMask.tag_wall)
-colliderMask.hurt_enemy = bit.bor(colliderMask.tag_player)
+colliderMask.hurt_enemy = colliderMask.tag_player --bit.bor(colliderMask.tag_player)
 colliderMask.hurt_enemybullet = colliderMask.tag_player
 colliderMask.hurt_ground = 0
 return colliderMask

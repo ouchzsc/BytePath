@@ -2,17 +2,17 @@ local archetype = {}
 
 archetype.bullet = { mod.GameObject, mod.RenderCircle, mod.DirMove,
                      mod.TimeToLive,
-                     mod.Collider, mod.CollideToDeath,mod.DeadBodyOnDeath }
+                     mod.Collider, mod.CollideToDeath, mod.DeadBodyOnDeath }
 
 archetype.ground = { mod.GameObject, mod.RenderRect, mod.Collider, mod.RenderLife, mod.DamageByCollision,
                      mod.LowLifeDeath, mod.ExplodeOnDeath }
 
 archetype.player = { mod.GameObject, mod.RenderName, mod.RenderSprite, mod.RenderLife,
                      mod.ExplodeOnDeath, mod.TailEffect, mod.RenderLineToMouse,
-                     mod.ShakeCamOnDeath,mod.SlowTimeOnDeath,
+                     mod.ShakeCamOnDeath, mod.SlowTimeOnDeath,
                      mod.Axis1, mod.Collider, mod.AccSystem,
-                     mod.RecoverJumpForceByLand,
-                     mod.Gravity, mod.WeaponSystem, mod.LowLifeDeath}
+                     mod.RecoverJumpForceByLand, mod.DamageByCollision,
+                     mod.Gravity, mod.WeaponSystem, mod.LowLifeDeath }
 
 archetype.enemy = { mod.GameObject, mod.Collider,
                     mod.RenderRect, mod.AccSystem,
