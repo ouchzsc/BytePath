@@ -7,7 +7,7 @@ archetype.bullet = { mod.GameObject, mod.RenderCircle, mod.DirMove,
 archetype.ground = { mod.GameObject, mod.RenderRect, mod.Collider, mod.RenderLife, mod.DamageByCollision,
                      mod.LowLifeDeath, mod.ExplodeOnDeath }
 
-archetype.player = { mod.GameObject, mod.RenderName, mod.RenderSprite, mod.RenderLife,
+archetype.player = { mod.GameObject, mod.RenderInfo, mod.RenderSprite, mod.RenderLife,
                      mod.ExplodeOnDeath, mod.TailEffect, mod.RenderLineToMouse,
                      mod.ShakeCamOnDeath, mod.SlowTimeOnDeath,
                      mod.Axis1, mod.Collider, mod.AccSystem,
@@ -16,8 +16,10 @@ archetype.player = { mod.GameObject, mod.RenderName, mod.RenderSprite, mod.Rende
 
 archetype.enemy = { mod.GameObject, mod.Collider,
                     mod.RenderRect, mod.AccSystem,
-                    mod.Gravity, mod.RenderLife, mod.DamageByCollision,
-                    mod.LowLifeDeath, mod.ExplodeOnDeath }
+                    mod.Gravity,
+                    --mod.RenderLife,
+                    mod.DamageByCollision,
+                    mod.LowLifeDeath, mod.ExplodeOnDeath,mod.Chase,mod.RenderInfo }
 
 archetype.camera = { mod.WorldCamera, mod.FollowTarget, mod.SyncPosition, mod.Shake }
 
