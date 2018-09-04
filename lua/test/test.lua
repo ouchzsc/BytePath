@@ -22,9 +22,10 @@ function test.f1()
 end
 
 function test.f2()
-    test.printDebug()
-    mod.event.onDoShake:Trigger(mod.camMgr.cam, 0.2, 60, 15)
-    mod.timeScaleMgr.setScale(0.1, 1)
+    --test.printDebug()
+    --mod.event.onDoShake:Trigger(mod.camMgr.cam, 0.2, 60, 15)
+    --mod.timeScaleMgr.setScale(0.1, 1)
+    mod.utils.printt(mod.enemy.axMap)
 end
 
 function test.f3()
@@ -32,6 +33,7 @@ function test.f3()
     enemy:setData({ x = 300, y = -10, w = 36, h = 36 })
     enemy:setData(mod.commondata.enemy)
     enemy:setActive(true)
+    mod.enemy = enemy
 end
 
 function test.showPlayersComponents()

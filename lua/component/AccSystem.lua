@@ -12,6 +12,7 @@ function AccSystem:onUpdate(dt)
     entity.ayMap = entity.ayMap or {}
     entity.vx = entity.vx or 0
     entity.vy = entity.vy or 0
+    local maxVx, maxVy = entity.maxVx or mod.config.maxVx, entity.maxVy or mod.config.maxVy
 
     local ax = 0
     for k, v in pairs(entity.axMap) do
@@ -32,17 +33,16 @@ function AccSystem:onUpdate(dt)
     end
     entity.vy = entity.vy + ay * dt
 
-    if entity.vx > mod.config.maxVx then
-        entity.vx = mod.config.maxVx
-    elseif entity.vx < -mod.config.maxVx then
-        entity.vx = -mod.config.maxVx
+    if entity.vx > maxVx then
+        entity.vx = maxVx
+    elseif entity.vx < -maxVx then
+        entity.vx = -maxVx
     end
-    if entity.vy > mod.config.maxVy then
-        entity.vy = mod.config.maxVy
-    elseif entity.vy < -mod.config.maxVy then
-        entity.vy = -mod.config.maxVy
+    if entity.vy > maxVy then
+        entity.vy = maxVy
+    elseif entity.vy < -maxVy then
+        entity.vy = -maxVy
     end
-
 
     entity.nextX = entity.x + entity.vx * dt
     entity.nextY = entity.y + entity.vy * dt

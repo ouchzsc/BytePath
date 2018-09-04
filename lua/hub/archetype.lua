@@ -16,8 +16,8 @@ archetype.player = { mod.GameObject, mod.RenderInfo, mod.RenderSprite, mod.Rende
 
 archetype.enemy = { mod.GameObject, mod.Collider,
                     mod.RenderRect, mod.AccSystem,
-                    mod.Gravity,
-                    --mod.RenderLife,
+                    mod.Gravity,mod.RecoverJumpForceByLand,
+                    mod.RenderLife,
                     mod.DamageByCollision,
                     mod.LowLifeDeath, mod.ExplodeOnDeath,mod.Chase,mod.RenderInfo }
 

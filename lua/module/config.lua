@@ -10,6 +10,8 @@ config.maxVx = 300
 config.maxVy = 300
 config.ax = 300
 config.ay = 10000
+config.chaseAx = 100
+config.chaseAy = 2000
 config.bulletVelocity = 800
 config.bulletlifetime = 2
 config.blue = { r = 0, g = 1, b = 1 }
@@ -20,4 +22,5 @@ config.lowSpeedSq = 250
 config.defaultAirResist = 500
 config.timeScale = 1
 config.brickSize = 36
+config.jumpEnergyMax = 1
 return config
