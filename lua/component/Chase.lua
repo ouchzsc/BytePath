@@ -36,13 +36,16 @@ function Chase:chaseTarget()
             end
         end
 
-        --前方有障碍也跳跃
+        --前方和下方有障碍也跳跃
         local world = mod.bump.world
-        local detectW = xDir*entity.w/4
-        local items, len = world:queryRect(entity.x + detectW, entity.y, entity.w, entity.h, function(item)
+        local detectW = xDir * entity.w / 4
+        local _, forwardLens = world:queryRect(entity.x + detectW, entity.y, entity.w, entity.h, function(item)
             return item.colliderTag == mod.colliderMask.tag_wall
         end)
-        if len > 0 then
+        local _, bottomlens = world:queryRect(entity.x, entity.y, entity.w, entity.h * 5 / 4, function(item)
+            return item.colliderTag == mod.colliderMask.tag_wall
+        end)
+        if forwardLens > 0 and bottomlens > 0 then
             entity.ayMap.chase = -mod.config.chaseAy
         end
     end
