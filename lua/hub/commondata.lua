@@ -1,6 +1,6 @@
 local commondata = {}
 
-commondata.player = { x = 50, y = -10, w = 23, h = 47,
+commondata.player = { x = 50, y = -10, w = 11, h = 36,
                       hpx = 0, hpy = -25, name = "Player", team = "team1",
                       weapons = { "Shoot", "Shoot3", "Shoot2" },
                       colliderTag = mod.colliderMask.tag_player,

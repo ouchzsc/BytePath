@@ -2,7 +2,7 @@ local archetype = {}
 
 archetype.bullet = { mod.GameObject, mod.RenderCircle, mod.DirMove,
                      mod.TimeToLive,
-                     mod.Collider, mod.CollideToDeath, mod.DeadBodyOnDeath }
+                     mod.Trigger, mod.CollideToDeath, mod.DeadBodyOnDeath }
 
 archetype.ground = { mod.GameObject, mod.RenderRect, mod.Collider, mod.RenderLife, mod.DamageByCollision,
                      mod.LowLifeDeath, mod.ExplodeOnDeath }

@@ -21,6 +21,6 @@ config.particleVelocityRatio = 0.1
 config.lowSpeedSq = 250
 config.defaultAirResist = 500
 config.timeScale = 1
-config.brickSize = 36
+config.brickSize = 40
 config.jumpEnergyMax = 1
 return config

@@ -9,7 +9,11 @@ end
 function CollideToDeath:onCollision(data)
     local col = data.col
     local entity = self.entity
-    if col.type ~= "cross" then
+    local other = data.other
+    local entityTag=entity.colliderTag or 0
+    local otherMask = other.colliderMask or 0
+
+    if bit.band(entityTag, otherMask)~=0 then
         entity:popEvent("death", { col = col })
         entity:setActive(false)
     end
