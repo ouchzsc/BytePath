@@ -10,10 +10,8 @@ function CollideToDeath:onCollision(data)
     local col = data.col
     local entity = self.entity
     local other = data.other
-    local entityTag=entity.colliderTag or 0
-    local otherMask = other.colliderMask or 0
 
-    if bit.band(entityTag, otherMask)~=0 then
+    if mod.layerMask.collideWith(entity.layerMask, other.layerMask) then
         entity:popEvent("death", { col = col })
         entity:setActive(false)
     end

@@ -1,3 +1,4 @@
+-- 测试场景
 local Scene2 = mod.Scene:newCls()
 
 function Scene2:onNew()

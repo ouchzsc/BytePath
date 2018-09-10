@@ -21,19 +21,30 @@ function test.f1()
     end
 end
 
+local function printenemy(enemy)
+    print(enemy.target.x,enemy.x,enemy.axMap.chase)
+end
+
 function test.f2()
     --test.printDebug()
     --mod.event.onDoShake:Trigger(mod.camMgr.cam, 0.2, 60, 15)
     --mod.timeScaleMgr.setScale(0.1, 1)
-    mod.utils.printt(mod.enemy.axMap)
+    printenemy(mod.enemy1)
+    printenemy(mod.enemy2)
 end
 
 function test.f3()
+    local enemy1 = mod.Entity.create(mod.archetype.enemy)
+    enemy1:setData({ x = 300, y = -10, w = 36, h = 36 })
+    enemy1:setData(mod.commondata.enemy)
+    enemy1:setActive(true)
+    mod.enemy1 = enemy1
+
     local enemy = mod.Entity.create(mod.archetype.enemy)
-    enemy:setData({ x = 300, y = -10, w = 36, h = 36 })
+    enemy:setData({ x = 700, y = -10, w = 36, h = 36 })
     enemy:setData(mod.commondata.enemy)
     enemy:setActive(true)
-    mod.enemy = enemy
+    mod.enemy2 = enemy
 end
 
 function test.showPlayersComponents()

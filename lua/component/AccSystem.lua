@@ -8,16 +8,20 @@ end
 
 function AccSystem:onUpdate(dt)
     local entity = self.entity
+    if entity.axMap then
+        entity.info2 = "accSystem.chase:" .. (entity.axMap.chase or "nil")
+    end
     entity.axMap = entity.axMap or {}
     entity.ayMap = entity.ayMap or {}
     entity.vx = entity.vx or 0
     entity.vy = entity.vy or 0
     local maxVx, maxVy = entity.maxVx or mod.config.maxVx, entity.maxVy or mod.config.maxVy
-
     local ax = 0
     for k, v in pairs(entity.axMap) do
         ax = ax + v
     end
+
+
 
     --速度不要直接变换正负，避免摩擦力计算出错，如果经过零点则先设为0，其实Y方向也可以这么算
     local tempvx = entity.vx + ax * dt

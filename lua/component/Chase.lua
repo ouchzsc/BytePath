@@ -26,6 +26,9 @@ function Chase:chaseTarget()
             entity.axMap.chase = -mod.config.chaseAx
         end
 
+        --entity.info = string.format("target x:%d,entity x:%d,xDir:%d,chaseX:%d",
+        --        target.x,entity.x,xDir,entity.axMap.chase)
+
         --目标在上方则跳跃
         if target.y < entity.y then
             if entity.jumpEnergy <= 0 then
@@ -40,14 +43,16 @@ function Chase:chaseTarget()
         local world = mod.bump.world
         local detectW = xDir * entity.w / 4
         local _, forwardLens = world:queryRect(entity.x + detectW, entity.y, entity.w, entity.h, function(item)
-            return item.colliderTag == mod.colliderMask.tag_wall
+            return item.layerMask == mod.layerMask.wall
         end)
         local _, bottomlens = world:queryRect(entity.x, entity.y, entity.w, entity.h * 5 / 4, function(item)
-            return item.colliderTag == mod.colliderMask.tag_wall
+            return item.layerMask == mod.layerMask.wall
         end)
         if forwardLens > 0 and bottomlens > 0 then
             entity.ayMap.chase = -mod.config.chaseAy
         end
+
+        entity.info ="Chase.chase:"..(entity.axMap.chase or nil)
     end
 end
 

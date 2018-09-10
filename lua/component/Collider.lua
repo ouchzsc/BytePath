@@ -18,17 +18,17 @@ local filter = function(item, other)
         return 'cross'
     end
 
-    if item.colliderTag == nil then
-        print("colliderTag nil", item.name)
+    if item.layerMask == nil then
+        print("Tag nil", item.name)
         return 'slide'
     end
 
-    if other.colliderMask == nil then
+    if other.layerMask == nil then
         print("colliderMask nil", other.name)
         return 'slide'
     end
 
-    if bit.band(item.colliderTag, other.colliderMask) == 0 then
+    if not mod.layerMask.collideWith(item.layerMask, other.layerMask) then
         return 'cross'
     else
         return 'slide'

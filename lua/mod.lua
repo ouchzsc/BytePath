@@ -63,7 +63,7 @@ mod.camMgr = require("lua.module.camMgr")
 mod.mouseMgr = require("lua.module.mouseMgr")
 mod.timeScaleMgr = require("lua.module.timeScaleMgr")
 mod.soundMgr = require("lua.module.soundMgr")
-mod.colliderMask = require("lua.hub.colliderMask")
+mod.layerMask = require("lua.hub.layerMask")
 mod.commondata = require("lua.hub.commondata")
 
 return mod

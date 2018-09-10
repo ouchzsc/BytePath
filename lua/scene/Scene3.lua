@@ -1,3 +1,4 @@
+--画正弦
 local Scene3 = mod.Scene:newCls()
 
 function Scene3:onNew()
