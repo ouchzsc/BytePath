@@ -49,7 +49,12 @@ function Chase:chaseTarget()
             return item.layerMask == mod.layerMask.wall
         end)
         if forwardLens > 0 and bottomlens > 0 then
-            entity.ayMap.chase = -mod.config.chaseAy
+            if entity.jumpEnergy <= 0 then
+                entity.ayMap.chase = 0
+            else
+                entity.ayMap.chase = -mod.config.chaseAy
+                entity.jumpEnergy = entity.jumpEnergy - dt
+            end
         end
 
         entity.info ="Chase.chase:"..(entity.axMap.chase or nil)
