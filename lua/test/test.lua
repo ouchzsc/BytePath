@@ -22,7 +22,7 @@ function test.f1()
 end
 
 local function printenemy(enemy)
-    print(enemy.target.x,enemy.x,enemy.axMap.chase)
+    mod.utils.printt(enemy)
 end
 
 function test.f2()
@@ -35,13 +35,13 @@ end
 
 function test.f3()
     local enemy1 = mod.Entity.create(mod.archetype.enemy)
-    enemy1:setData({ x = 300, y = -10, w = 36, h = 36 })
+    enemy1:setData({ x = 300, y = -10, w = 36, h = 36,name="enemy1" })
     enemy1:setData(mod.commondata.enemy)
     enemy1:setActive(true)
     mod.enemy1 = enemy1
 
     local enemy = mod.Entity.create(mod.archetype.enemy)
-    enemy:setData({ x = 700, y = -10, w = 36, h = 36 })
+    enemy:setData({ x = 700, y = -10, w = 36, h = 36 ,name="enemy2"})
     enemy:setData(mod.commondata.enemy)
     enemy:setActive(true)
     mod.enemy2 = enemy
