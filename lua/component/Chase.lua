@@ -1,7 +1,9 @@
 local Chase = mod.ComponentSystem:newCls()
-local dt = 0.2
+local dtlist = {0.2,0.3,0.4}
 function Chase:onEnable()
-    self:scheduleTimerAtFixedRate("check", 0, dt, function()
+    local id = math.random(1,#dtlist)
+    self.dt = dtlist[id]
+    self:scheduleTimerAtFixedRate("check", 0, self.dt, function()
         self:chaseTarget()
     end)
 end
@@ -29,14 +31,10 @@ function Chase:chaseTarget()
         --entity.info = string.format("target x:%d,entity x:%d,xDir:%d,chaseX:%d",
         --        target.x,entity.x,xDir,entity.axMap.chase)
 
+        local shouldJump = false
         --目标在上方则跳跃
         if target.y < entity.y then
-            if entity.jumpEnergy <= 0 then
-                entity.ayMap.chase = 0
-            else
-                entity.ayMap.chase = -mod.config.chaseAy
-                entity.jumpEnergy = entity.jumpEnergy - dt
-            end
+            shouldJump = true
         end
 
         --前方和下方有障碍也跳跃
@@ -49,15 +47,24 @@ function Chase:chaseTarget()
             return item.layerMask == mod.layerMask.wall
         end)
         if forwardLens > 0 and bottomlens > 0 then
-            if entity.jumpEnergy <= 0 then
-                entity.ayMap.chase = 0
-            else
-                entity.ayMap.chase = -mod.config.chaseAy
-                entity.jumpEnergy = entity.jumpEnergy - dt
-            end
+            shouldJump = true
         end
 
-        entity.info ="Chase.chase:"..(entity.axMap.chase or nil)
+        if shouldJump then
+            self:doJump()
+        end
+
+        entity.info = "Chase.chase:" .. (entity.axMap.chase or nil)
+    end
+end
+
+function Chase:doJump()
+    local entity = self.entity
+    if entity.jumpEnergy <= 0 then
+        entity.ayMap.chase = 0
+    else
+        entity.ayMap.chase = -mod.config.chaseAy
+        entity.jumpEnergy = entity.jumpEnergy - self.dt
     end
 end
 

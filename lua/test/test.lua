@@ -22,15 +22,16 @@ function test.f1()
 end
 
 local function printenemy(enemy)
-    mod.utils.printt(enemy)
+    --mod.utils.printt(enemy)
+    mod.playerMgr.init()
 end
 
 function test.f2()
     --test.printDebug()
     --mod.event.onDoShake:Trigger(mod.camMgr.cam, 0.2, 60, 15)
     --mod.timeScaleMgr.setScale(0.1, 1)
-    printenemy(mod.enemy1)
-    printenemy(mod.enemy2)
+    --printenemy(mod.enemy1)
+    mod.playerMgr.init()
 end
 
 function test.f3()
