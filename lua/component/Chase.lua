@@ -1,7 +1,7 @@
 local Chase = mod.ComponentSystem:newCls()
-local dtlist = {0.2,0.3,0.4}
+local dtlist = { 1, 2, 1.5 }
 function Chase:onEnable()
-    local id = math.random(1,#dtlist)
+    local id = math.random(1, #dtlist)
     self.dt = dtlist[id]
     self:scheduleTimerAtFixedRate("check", 0, self.dt, function()
         self:chaseTarget()
@@ -76,6 +76,8 @@ function Chase:findTarget()
     end)
     if len > 0 then
         entity.target = items[1]
+    else
+        entity.target = nil
     end
 end
 
